@@ -18,6 +18,27 @@ document.getElementById('menu-button').addEventListener('click', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
 });
+// Mobile Menu Toggle
+document.getElementById('menu-button').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    const button = this;
+
+    // Toggle mobile menu visibility
+    menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'flex' : 'none';
+
+    // Add or remove the 'active' class to the button
+    button.classList.toggle('active');
+});
+// Close menu when clicking outside
+window.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobile-menu');
+    const button = document.getElementById('menu-button');
+
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.style.display = 'none'; // Hide menu
+        button.classList.remove('active'); // Remove active class from button
+    }
+});
 
 
         // Automatic Slider
