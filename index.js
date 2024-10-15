@@ -1,23 +1,33 @@
 // Mobile Menu Toggle
-document.getElementById('menu-button').addEventListener('click', function () {
+function toggleMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const button = this;
-
-    // Toggle mobile menu visibility (ensure consistency with 'flex' display)
-    mobileMenu.style.display = (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') ? 'flex' : 'none';
-
-    // Add or remove the 'active' class to the button
-    button.classList.toggle('active');
-});
-
+    
+    menuBtn.classList.toggle('active');
+    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+  }
+  
 // Close menu when clicking outside
-window.addEventListener('click', function (event) {
+window.addEventListener('click', function(event) {
     const menu = document.getElementById('mobile-menu');
     const button = document.getElementById('menu-button');
 
     if (!menu.contains(event.target) && !button.contains(event.target)) {
-        menu.style.display = 'none'; // Hide menu
+        menu.classList.remove('menu-visible'); // Hide menu
+        setTimeout(() => {
+            menu.style.display = 'none'; // Remove from view after animation
+        }, 300); // Match the duration of the transition
         button.classList.remove('active'); // Remove active class from button
+    }
+});
+
+// Show/Hide Register Button on Scroll
+window.addEventListener('scroll', function() {
+    var popupButton = document.getElementById('popup-button');
+    if (window.scrollY > document.getElementById('home').offsetHeight) {
+        popupButton.style.display = 'block';
+    } else {
+        popupButton.style.display = 'none';
     }
 });
 
@@ -41,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const updateCounter = () => {
             const target = +counter.getAttribute('data-target');
             const current = +counter.innerText;
-            const increment = target / 200;
+            const increment = target / 200; 
 
             if (current < target) {
                 counter.innerText = Math.ceil(current + increment);
-                setTimeout(updateCounter, 10);
+                setTimeout(updateCounter, 10); 
             } else {
                 counter.innerText = target;
             }
@@ -55,10 +65,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Flip Book Animation
-document.querySelectorAll('.flip-book input[type="checkbox"]').forEach((checkbox) => {
-    checkbox.addEventListener('change', () => {
-        // Toggle the flip effect
-        checkbox.nextElementSibling.classList.toggle('flipped');
-    });
-});
