@@ -62,7 +62,48 @@ nav a:hover {
   color: #cccccc;
 }
 
-/*mobile menu*/
+
+/* Mobile Menu Button */
+/* Menu Button */
+.menu-btn {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn__burger {
+  width: 35px;
+  height: 4px;
+  background-color: #fff; /* White color for the lines */
+  border-radius: 2px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 4px;
+  background-color: #fff; /* White color for the lines */
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.menu-btn__burger::before {
+  top: -10px;
+}
+
+.menu-btn__burger::after {
+  top: 10px;
+}
+
+/* Mobile Menu */
 .mobile-menu {
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
@@ -102,6 +143,7 @@ nav a:hover {
   top: 0;
   opacity: 0;
 }
+
 
 /* Home Page Styles */
 .home-page {
