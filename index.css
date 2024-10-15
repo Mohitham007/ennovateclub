@@ -61,51 +61,46 @@ nav a {
 nav a:hover {
   color: #cccccc;
 }
-.menu-button {
-  background: none; /* No background */
-  border: none; /* No border */
-  cursor: pointer; /* Pointer cursor */
-  z-index: 1000; /* Ensure it’s on top */
+
+/*mobile menu*/
+.mobile-menu {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
 }
 
-.hamburger-icon {
-  display: flex;
-  flex-direction: column; /* Stack lines vertically */
-  justify-content: space-around; /* Space out the lines */
-  width: 30px; /* Width of the button */
-  height: 30px; /* Height of the button */
+.mobile-menu ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.line {
-  width: 100%; /* Full width */
-  height: 4px; /* Height of each line */
-  background-color: #002855; /* Color of the lines */
-  transition: all 0.3s ease; /* Smooth transition for effects */
+.mobile-menu ul li {
+  padding: 10px 0;
 }
 
-/* Change the lines on active state */
-.menu-button.active .line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px); /* Rotate first line */
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
 }
 
-.menu-button.active .line:nth-child(2) {
-  opacity: 0; /* Hide the middle line */
+/* Active state for the menu */
+.menu-btn.active .menu-btn__burger {
+  transform: rotate(45deg);
 }
 
-.menu-button.active .line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px); /* Rotate third line */
+.menu-btn.active .menu-btn__burger::before {
+  top: 0;
+  transform: rotate(90deg);
 }
 
-
-/* Media Queries */
-@media (min-width: 768px) {
-  nav {
-      display: flex;
-  }
-
-  .menu-button {
-      display: none;
-  }
+.menu-btn.active .menu-btn__burger::after {
+  top: 0;
+  opacity: 0;
 }
 
 /* Home Page Styles */
