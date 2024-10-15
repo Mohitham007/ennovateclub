@@ -1,18 +1,12 @@
         // Mobile Menu Toggle
-        document.getElementById('menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
-        });
-
-        // Show/Hide Register Button on Scroll
-        window.addEventListener('scroll', function() {
-            var popupButton = document.getElementById('popup-button');
-            if (window.scrollY > document.getElementById('home').offsetHeight) {
-                popupButton.style.display = 'block';
-            } else {
-                popupButton.style.display = 'none';
-            }
-        });
+function toggleMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuBtn.classList.toggle('active');
+    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+  }
+  
         // Toggle mobile menu
 document.getElementById('menu-button').addEventListener('click', function() {
     const mobileMenu = document.getElementById('mobile-menu');
